@@ -12,7 +12,7 @@ namespace Nereid
       {
          private readonly CodeBrowser codeBrowser = new CodeBrowser();
 
-         private GUIStyle STYLE_TEXTFIELD_WIDOWTITLE = new GUIStyle(HighLogic.Skin.textField);
+         private GUIStyle STYLE_TEXTFIELD_WIDOWTITLE = new GUIStyle(FFStyles.STYLE_TEXTFIELD);
 
          private bool hotkeyInput = false;
 
@@ -20,8 +20,8 @@ namespace Nereid
             : base(Constants.WINDOW_ID_CONFIG, "Final Frontier Configuration")
          {
             STYLE_TEXTFIELD_WIDOWTITLE.stretchWidth = false;
-            STYLE_TEXTFIELD_WIDOWTITLE.fixedWidth = 190;
-         }
+            STYLE_TEXTFIELD_WIDOWTITLE.fixedWidth = (int)Math.Round(190 * GameSettings.UI_SCALE);
+            }
 
          public override void SetVisible(bool visible)
          {

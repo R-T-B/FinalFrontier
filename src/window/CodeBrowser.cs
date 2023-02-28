@@ -11,11 +11,11 @@ namespace Nereid
 
          private Vector2 scrollPosition = Vector2.zero;
 
-         public static int WIDTH = 350;
-         public static int HEIGHT =500;
+         public static int WIDTH = (int)Math.Round(350 * GameSettings.UI_SCALE);
+         public static int HEIGHT = (int)Math.Round(500 * GameSettings.UI_SCALE);
 
-         private static readonly GUIStyle STYLE_CODE = new GUIStyle(HighLogic.Skin.label);
-         private static readonly GUIStyle STYLE_NAME = new GUIStyle(HighLogic.Skin.label);
+         private static readonly GUIStyle STYLE_CODE = new GUIStyle(FFStyles.STYLE_LABEL);
+         private static readonly GUIStyle STYLE_NAME = new GUIStyle(FFStyles.STYLE_LABEL);
 
          private List<Pair<String, String>> codes = new List<Pair<String, String>>();
 
@@ -24,7 +24,7 @@ namespace Nereid
             : base(Constants.WINDOW_ID_CODEBROWSER, "Ribbon Codes")
          {
             STYLE_CODE.stretchWidth = false;
-            STYLE_CODE.fixedWidth = 100;
+            STYLE_CODE.fixedWidth = (int)Math.Round(100 * GameSettings.UI_SCALE);
             STYLE_CODE.alignment = TextAnchor.MiddleLeft;
             STYLE_NAME.stretchWidth = true;
             STYLE_NAME.alignment = TextAnchor.MiddleLeft;

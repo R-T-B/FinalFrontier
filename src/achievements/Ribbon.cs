@@ -8,10 +8,10 @@ namespace Nereid
    {
       public class Ribbon : IComparable<Ribbon>
       {
-         public static readonly int WIDTH = 120;
-         public static readonly int HEIGHT = 32;
+         public static readonly int WIDTH = (int)Math.Round(120 * GameSettings.UI_SCALE);
+         public static readonly int HEIGHT = (int)Math.Round(32 * GameSettings.UI_SCALE);
 
-         private readonly Texture2D texture;
+            private readonly Texture2D texture;
          private readonly Achievement achievement;
          // ribbon that has to be superseded if any
          private readonly Ribbon supersede;

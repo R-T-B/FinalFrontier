@@ -13,15 +13,15 @@ namespace Nereid
          private static readonly int RIBBONS_PER_LINE = 4;
          private static readonly int RIBBON_DISPLAY_HEIGHT = RIBBON_LINES * Ribbon.HEIGHT;
          private static readonly int RIBBON_DISPLAY_SKIP = 2;
-         private static readonly int RIBBON_DISPLAY_WIDTH = RIBBONS_PER_LINE * (RIBBON_DISPLAY_SKIP + Ribbon.WIDTH) + 20;
-         private static readonly int RIBBON_LOGBOOK_HEIGHT = 120;
-         private static readonly int WIDTH = 500;
-         private static readonly GUIStyle STYLE_TEXT_LABEL = new GUIStyle(HighLogic.Skin.button);
-         private static readonly GUIStyle STYLE_VALUE_LABEL = new GUIStyle(HighLogic.Skin.button);
-         private static readonly GUIStyle STYLE_STATUS_LABEL = new GUIStyle(HighLogic.Skin.button);
-         private static readonly GUIStyle STYLE_LOCATION_LABEL = new GUIStyle(HighLogic.Skin.button);
-         private static readonly GUIStyle STYLE_LOGBOOK_BOX = new GUIStyle(HighLogic.Skin.box);
-         private static readonly GUIStyle STYLE_TOPRIGHT_LAYOUT = new GUIStyle(HighLogic.Skin.label);
+         private static readonly int RIBBON_DISPLAY_WIDTH = RIBBONS_PER_LINE * (RIBBON_DISPLAY_SKIP + Ribbon.WIDTH) + (int)(Math.Round(20 * GameSettings.UI_SCALE));
+         private static readonly int RIBBON_LOGBOOK_HEIGHT = (int)Math.Round(120 * GameSettings.UI_SCALE);
+         private static readonly int WIDTH = (int)Math.Round(500 * GameSettings.UI_SCALE);
+         private static readonly GUIStyle STYLE_TEXT_LABEL = new GUIStyle(FFStyles.STYLE_BUTTON);
+         private static readonly GUIStyle STYLE_VALUE_LABEL = new GUIStyle(FFStyles.STYLE_BUTTON);
+         private static readonly GUIStyle STYLE_STATUS_LABEL = new GUIStyle(FFStyles.STYLE_BUTTON);
+         private static readonly GUIStyle STYLE_LOCATION_LABEL = new GUIStyle(FFStyles.STYLE_BUTTON);
+         private static readonly GUIStyle STYLE_LOGBOOK_BOX = new GUIStyle(FFStyles.STYLE_BOX);
+         private static readonly GUIStyle STYLE_TOPRIGHT_LAYOUT = new GUIStyle(FFStyles.STYLE_LABEL);
 
          // custom award dialogue
          private enum MODE { DISPLAY, AWARD, REVOCATION };
@@ -54,11 +54,11 @@ namespace Nereid
             : base(Constants.WINDOW_ID_DISPLAY, FinalFrontier.configuration.GetDecorationBoardWindowTitle())
          {
             //
-            STYLE_TEXT_LABEL.fixedWidth = 200;
+            STYLE_TEXT_LABEL.fixedWidth = (int)Math.Round(200 * GameSettings.UI_SCALE);
             STYLE_TEXT_LABEL.stretchWidth = false;
             STYLE_TEXT_LABEL.clipping = TextClipping.Clip;
             STYLE_TEXT_LABEL.alignment = TextAnchor.MiddleLeft;
-            STYLE_VALUE_LABEL.fixedWidth = 120;
+            STYLE_VALUE_LABEL.fixedWidth = (int)Math.Round(120 * GameSettings.UI_SCALE);
             STYLE_VALUE_LABEL.stretchWidth = false;
             STYLE_VALUE_LABEL.clipping = TextClipping.Clip;
             STYLE_VALUE_LABEL.alignment = TextAnchor.MiddleRight;
@@ -80,7 +80,7 @@ namespace Nereid
             if (Log.IsLogable(Log.LEVEL.TRACE)) Log.Trace("drawing of decoration board started (mode="+mode+")");
             GUILayout.BeginVertical();
             // detailed statistics
-            GUILayout.BeginVertical(HighLogic.Skin.scrollView);
+            GUILayout.BeginVertical(FFStyles.STYLE_SCROLLVIEW);
             GUILayout.BeginHorizontal();
             GUILayout.Label(entry != null ? entry.GetName() : "", FFStyles.STYLE_BUTTON);
             CloseButton();
@@ -305,7 +305,7 @@ namespace Nereid
             }
             GUILayout.EndHorizontal();
             customRibbonName = GUILayout.TextField(customRibbonName, FFStyles.STYLE_TEXTFIELD);
-            customRibbonText = GUILayout.TextArea(customRibbonText, FFStyles.STYLE_TEXTAREA, GUILayout.Width(300));
+            customRibbonText = GUILayout.TextArea(customRibbonText, FFStyles.STYLE_TEXTAREA, GUILayout.Width(300 * GameSettings.UI_SCALE));
             GUILayout.EndVertical();
          }
 

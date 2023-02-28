@@ -235,3 +235,5 @@ Contribution/
 Resource/
 Screenshots/
 FinalFrontier.version
+*.lock
+*.vsidx

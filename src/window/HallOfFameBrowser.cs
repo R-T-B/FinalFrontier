@@ -10,9 +10,9 @@ namespace Nereid
    {
       public class HallOfFameBrowser : PositionableWindow
       {
-         private static readonly int KERBAL_BUTTON_WIDTH = 140;
-         private static readonly int KERBAL_AREA_WIDTH = 450;
-         private static readonly int KERBAL_AREA_HEIGHT = 65;
+         private static readonly int KERBAL_BUTTON_WIDTH = (int)Math.Round(140 * GameSettings.UI_SCALE);
+         private static readonly int KERBAL_AREA_WIDTH = (int)Math.Round(450 * GameSettings.UI_SCALE);
+         private static readonly int KERBAL_AREA_HEIGHT = (int)Math.Round(65 * GameSettings.UI_SCALE);
          private readonly Texture2D TEXTURE_AVAILABLE;
          private readonly Texture2D TEXTURE_ASSIGNED;
          private readonly Texture2D TEXTURE_KILLED;
@@ -22,7 +22,7 @@ namespace Nereid
          private GUIStyle STYLE_KERBAL_INFO;
          private GUIStyle STYLE_KERBAL_AREA_EXPANDED;
          private GUIStyle STYLE_RIBBON_AREA;
-         private static readonly int STYLE_SCROLLVIEW_HEIGHT = 450;
+         private static readonly int STYLE_SCROLLVIEW_HEIGHT = (int)Math.Round(450 * GameSettings.UI_SCALE);
 
          private RibbonBrowser ribbonBrowser;
          private DisplayWindow display;
@@ -385,21 +385,21 @@ namespace Nereid
          public HallOfFameBrowser()
             : base(Constants.WINDOW_ID_HALLOFFAMEBROWSER, FinalFrontier.configuration.GetHallOfFameWindowTitle())
          {
-            STYLE_KERBAL_BUTTON = new GUIStyle(HighLogic.Skin.button);
+            STYLE_KERBAL_BUTTON = new GUIStyle(FFStyles.STYLE_BUTTON);
             STYLE_KERBAL_BUTTON.fixedWidth = KERBAL_BUTTON_WIDTH;
             STYLE_KERBAL_BUTTON.clipping = TextClipping.Clip;
-            STYLE_KERBAL_STATUS = new GUIStyle(HighLogic.Skin.button);
+            STYLE_KERBAL_STATUS = new GUIStyle(FFStyles.STYLE_BUTTON);
             STYLE_KERBAL_STATUS.fixedWidth = 20;
-            STYLE_KERBAL_AREA = new GUIStyle(HighLogic.Skin.box);
+            STYLE_KERBAL_AREA = new GUIStyle(FFStyles.STYLE_BOX);
             STYLE_KERBAL_AREA.fixedWidth = KERBAL_AREA_WIDTH;
             STYLE_KERBAL_AREA.fixedHeight = KERBAL_AREA_HEIGHT;
             STYLE_KERBAL_AREA.clipping = TextClipping.Clip;
-            STYLE_KERBAL_AREA_EXPANDED = new GUIStyle(HighLogic.Skin.box);
+            STYLE_KERBAL_AREA_EXPANDED = new GUIStyle(FFStyles.STYLE_BOX);
             STYLE_KERBAL_AREA_EXPANDED.fixedWidth = KERBAL_AREA_WIDTH;
             STYLE_KERBAL_AREA_EXPANDED.stretchHeight = true;
             STYLE_KERBAL_AREA_EXPANDED.clipping = TextClipping.Clip;
-            STYLE_KERBAL_INFO = new GUIStyle(HighLogic.Skin.label);
-            STYLE_RIBBON_AREA = new GUIStyle(HighLogic.Skin.label);
+            STYLE_KERBAL_INFO = new GUIStyle(FFStyles.STYLE_LABEL);
+            STYLE_RIBBON_AREA = new GUIStyle(FFStyles.STYLE_LABEL);
             STYLE_RIBBON_AREA.stretchHeight = true;
             STYLE_RIBBON_AREA.stretchWidth = true;
             STYLE_RIBBON_AREA.padding = new RectOffset(10, 10, 2, 2);
@@ -431,7 +431,7 @@ namespace Nereid
             switch(sorter.GetMode())
             {
                case HallOfFameSorter.SORT_MODE.STATISTIC:
-                  STYLE_KERBAL_INFO.normal.textColor = HighLogic.Skin.label.normal.textColor;
+                  STYLE_KERBAL_INFO.normal.textColor = FFStyles.STYLE_LABEL.normal.textColor;
                   break;
                case HallOfFameSorter.SORT_MODE.SKILL:
                   STYLE_KERBAL_INFO.normal.textColor = Color.cyan;
@@ -439,7 +439,7 @@ namespace Nereid
             }
             //
             GUILayout.BeginHorizontal();
-            scrollPosition = GUILayout.BeginScrollView(scrollPosition, GUILayout.Width(490), GUILayout.Height(STYLE_SCROLLVIEW_HEIGHT));
+            scrollPosition = GUILayout.BeginScrollView(scrollPosition, GUILayout.Width(490 * GameSettings.UI_SCALE), GUILayout.Height(STYLE_SCROLLVIEW_HEIGHT));
             GUILayout.BeginVertical();
             int index = 0;
             bool expandDetected = false;

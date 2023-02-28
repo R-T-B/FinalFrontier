@@ -15,8 +15,8 @@ namespace Nereid
          public const int CENTER_HORIZONTALLY = int.MinValue;
 
          //
-         private const int DEFAULT_WIDTH = 400;
-         //
+         private int DEFAULT_WIDTH = (int)Math.Round(400 * GameSettings.UI_SCALE);
+            //
          private readonly int id;
          private string title;
          private bool visible = false;

@@ -8,21 +8,19 @@ namespace Nereid
    {
       public class MissionSummaryWindow : PositionableWindow
       {
-         public const int WIDTH = 300;
-         public const int HEIGHT = 300;
+            public int WIDTH = (int)Math.Round(300 * GameSettings.UI_SCALE);
+            public int HEIGHT = (int)Math.Round(300 * GameSettings.UI_SCALE);
+            private static readonly GUIStyle STYLE_SUMMARY = new GUIStyle(FFStyles.STYLE_SCROLLVIEW);
+            private static readonly GUIStyle STYLE_NAME = new GUIStyle(FFStyles.STYLE_STRETCHEDLABEL);
+            private static readonly GUIStyle STYLE_TEXT = new GUIStyle(FFStyles.STYLE_LABEL);
+            private static readonly GUIStyle STYLE_LINE = new GUIStyle(FFStyles.STYLE_LABEL);
 
-
-         private static readonly GUIStyle STYLE_SUMMARY = new GUIStyle(HighLogic.Skin.scrollView);
-         private static readonly GUIStyle STYLE_NAME = new GUIStyle(FFStyles.STYLE_STRETCHEDLABEL);
-         private static readonly GUIStyle STYLE_TEXT = new GUIStyle(HighLogic.Skin.label);
-         private static readonly GUIStyle STYLE_LINE = new GUIStyle(HighLogic.Skin.label);
-
-         static MissionSummaryWindow()
+            static MissionSummaryWindow()
          {
             STYLE_SUMMARY.stretchHeight = false;
-            STYLE_SUMMARY.fixedHeight = 200;
+            STYLE_SUMMARY.fixedHeight = 200 * GameSettings.UI_SCALE;
             STYLE_SUMMARY.stretchWidth = false;
-            STYLE_SUMMARY.fixedWidth = 370;
+            STYLE_SUMMARY.fixedWidth = 370 * GameSettings.UI_SCALE;
             STYLE_SUMMARY.alignment = TextAnchor.UpperLeft;
             STYLE_TEXT.normal.textColor = HighLogic.Skin.button.normal.textColor;
             STYLE_LINE.alignment = TextAnchor.UpperLeft;

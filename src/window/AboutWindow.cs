@@ -39,8 +39,8 @@ namespace Nereid
 
          public override int GetInitialWidth()
          {
-            return 350;
-         }
+            return (int)Math.Round(350 * GameSettings.UI_SCALE);
+            }
       }
    }
 }

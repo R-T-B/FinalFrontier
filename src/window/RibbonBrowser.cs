@@ -11,8 +11,8 @@ namespace Nereid
 
          private Vector2 scrollPosition = Vector2.zero;
 
-         public static int WIDTH = 555;
-         public static int HEIGHT = 600;
+         public static int WIDTH = (int)Math.Round(555 * GameSettings.UI_SCALE);
+         public static int HEIGHT = (int)Math.Round(600 * GameSettings.UI_SCALE);
 
          private String search = "";
 
@@ -42,7 +42,7 @@ namespace Nereid
             }
             GUILayout.EndHorizontal();
             GUILayout.BeginHorizontal();
-            GUILayout.Label("Search:", HighLogic.Skin.label);
+            GUILayout.Label("Search:", FFStyles.STYLE_LABEL);
             search = GUILayout.TextField(search, FFStyles.STYLE_STRETCHEDTEXTFIELD);
             GUILayout.EndHorizontal();
             scrollPosition = GUILayout.BeginScrollView(scrollPosition, FFStyles.STYLE_SCROLLVIEW, GUILayout.Height(HEIGHT));
